@@ -1,0 +1,40 @@
+div.sinmargen {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+div.margen {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+div.caja {
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+div.cajacopa {
+    border: 10px outset purple;
+}
+
+h1, img, p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.responsive {
+    width: 95%;
+    height: auto;
+}
+
+p.fuente {
+    font-family: 'Cursive', Lucida Handwriting;
+    font-size: larger;
+    text-shadow: 4px 4px 3px #77f;
+}
