@@ -304,7 +304,7 @@ overviewer.util = {
         overviewer.map = L.map('mcmap', {crs: L.CRS.Simple});
 
         overviewer.map.attributionControl.setPrefix(
-            '<a href="/cabeza.html">Caja Cabeza</a>');
+            '<a href="cabeza/cabeza.html">Caja Cabeza</a>');
 
         overviewer.map.on('baselayerchange', function(ev) {
             
