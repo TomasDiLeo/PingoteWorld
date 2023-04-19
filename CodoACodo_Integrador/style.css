@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.titulo {
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+    margin: 0;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: x-small;
+    margin: 0;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.carousel-item .titulo {
+    text-align: right;
+    font-size: xx-large;
+    font-weight: 600;
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.small-device-info{
+    text-align: justify;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .small-device-info {
+        display: none;
+    }   
+}
+
+@media (max-width: 767px) {
+    #carouselBSAS{
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
