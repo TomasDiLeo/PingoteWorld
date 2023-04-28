@@ -94,10 +94,13 @@
     </div>
     <!-- ORADORES -->
     <div class="oradores">
-        <div class="subtitulo">CONOCE A LOS</div>
-        <div class="titulo">ORADORES</div>
+        <div class="division">
+            <div class="subtitulo">CONOCE A LOS</div>
+            <div class="titulo">ORADORES</div>
+        </div>
+
         <!-- class d-flex justify-content-center -->
-        <div class="flex-container">
+        <div class="flex-container mb-4">
             <div class="card mx-2 mb-3" style="width: 18rem;">
                 <img class="card-img-top" src="images/steve.jpg" alt="steve">
                 <div class="card-body">
@@ -150,11 +153,106 @@
     </div>
 
     <!-- Bs As Octubre -->
+    <div class="bsasOctubre">
+        <div class="" style="flex-grow: 1;">
+            <img class="" src="images/honolulu.jpg" alt="honolulu">
+        </div>
+        <div class="caja-de-texto text-light">
+            <p class="titulo mb-2">Bs As - Octubre</p>
+            <p>Buenos Aires es la provincia y localidad más grande del estado de Argentina, en los Estados Unidos.
+                Honolulu es la más sureña de entre las principales ciudades estadounidenses. Aunque el nombre de
+                Honolulu se refiere al área urbana en la costa sureste de la isla de Oahu, la ciudad y el condado de
+                Honolulu han formado una ciudad condado consolidada que cubre toda la ciudad (aproximadamente 600
+                km² de superficie).
+            </p>
+            <button type="button" class="btn btn-outline-light">Conocé más</button>
+
+        </div>
+    </div>
 
     <!-- FORMULARIO -->
+    <div class="division mb-2">
+        <div class="subtitulo">CONVIÉRTETE EN UN</div>
+        <div class="titulo">ORADOR</div>
+        <div class="subtitulo fs-6">
+            Anotate como orador para dar una
+            <abbr
+                title="El formato Ignite consiste en una presentación de la idea central de un proyecto o visión en cinco minutos. Es un formato parecido al PechaKucha. Durante los 5 minutos de una presentación Ignite se exponen 20 transparencias o diapositivas para apoyar el discurso. Cada diapositiva tiene una duración de 15 escasos segundos por lo que la claridad es fundamental. 
+                La gran diferencia de la presentación Ignite respecto a otros formatos de presentación rápida es que tiene como objetivo contar una historia, una idea o visión que no tiene que ser necesariamente un proyecto empresarial, como sí que suele suceder con otros formatos.">
+                charla ignite
+            </abbr>
+            . Cuéntanos de qué quieres hablar!
+        </div>
+    </div>
+
+    <div style="padding-left: 20%; padding-right: 20%; padding-bottom: 1rem;">
+        <form>
+            <div class="row mb-3">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nombre" id="fnombre">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Apellido" id="fapellido">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <textarea class="form-control" id="ftema" rows="4"
+                        placeholder="Sobre qué quieres hablar?"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-size: smaller; opacity: 0.8;">Recuerda incluir un titulo para tu charla</p>
+            </div>
+            <div class="row p-2">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </form>
+    </div>
 
     <!-- FOOTER -->
 
+    <div class="footer p-3" style="background-color: rgb(30, 79, 109);">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col my-auto">
+                    <a href="#">
+                        Preguntas frecuentes
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Contactanos
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Prensa
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Conferencias
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Términos y condiciones
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Privacidad
+                    </a>
+                </div>
+                <div class="col my-auto">
+                    <a href="#">
+                        Estudiantes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SCRIPT DE BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

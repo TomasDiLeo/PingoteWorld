@@ -4,17 +4,40 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.titulo {
+img {
+    max-width: 100%;
+}
+
+.footer a {
+    display: inline;
     text-align: center;
-    font-size: x-large;
+    text-decoration: none;
+    color: white;
+}
+
+.titulo {
+    text-align: left;
+    font-size: xx-large;
     font-weight: 600;
     margin: 0;
 }
 
 .subtitulo {
-    text-align: center;
-    font-size: x-small;
+    text-align: left;
+    font-size: small;
     margin: 0;
+}
+
+.division{
+    margin-top: 1rem;
+}
+
+.division .titulo {
+    text-align: center;
+}
+
+.division .subtitulo {
+    text-align: center;
 }
 
 .carousel-item::before {
@@ -46,6 +69,15 @@ body {
     padding: 1rem;
 }
 
+.bsasOctubre {
+    display: flex;
+    background-color: rgb(53, 58, 64);
+}
+
+.bsasOctubre .caja-de-texto {
+    margin: 1rem;
+}
+
 @media (min-width: 768px) {
     .small-device-info {
         display: none;
@@ -60,6 +92,12 @@ body {
 
 @media (max-width: 550px) {
     .flex-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1300px) {
+    .bsasOctubre {
         flex-direction: column;
     }
 }
