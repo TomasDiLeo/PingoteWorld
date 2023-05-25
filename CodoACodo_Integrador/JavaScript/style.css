@@ -1,0 +1,56 @@
+.footer a {
+    display: inline;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.square {
+    border: 1px solid rgb(0, 0, 0);
+    width: 15rem;
+    height: 13rem;
+    text-align: center;
+}
+
+#blue.square  { 
+    border-color: rgb(46, 46, 248);
+}
+
+#green.square  { 
+    border-color: rgb(35, 148, 25);
+}
+
+#yellow.square  { 
+    border-color: rgb(179, 182, 29);
+}
+
+.square .categoria {
+    font-size: 1.3rem;
+    font-weight: 550;
+}
+
+.square .porcentaje {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.square .nota {
+    color: grey;
+    font-weight: 100;
+}
+
+.titulo {
+    font-size: xx-large;
+    font-weight: 600;
+    margin: 0;
+}
+
+.subtitulo {
+    font-size: small;
+    margin: 0;
+}
+
+.formulario {
+    margin-left: 20%;
+    margin-right: 20%;
+}
