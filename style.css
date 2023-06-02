@@ -52,7 +52,7 @@ body a div {
 }
 
 .activador:hover .descripcion{
-    max-height: 80px;
+    max-height: 350px;
     color: black;
 
     transition: all 0.8s ease-out;
