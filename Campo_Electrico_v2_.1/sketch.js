@@ -4,7 +4,7 @@ let chargeUser
 let spacing = 7
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 500);
   p1 = new Particle(width/2-width/4, height/2, 1);
   p2 = new Particle(width/2+width/4, height/2, -1);
   
@@ -14,11 +14,12 @@ function setup() {
   
   slider = createSlider(-2, 2, 0,0.1);
   slider.position(10, 10);
-  slider.style('width', '80px');
+  slider.style('width', '190px');
 }
 
 function draw() {
   background(0);
+
   
   chargeUser = slider.value();
   
@@ -33,6 +34,10 @@ function draw() {
     particle.update();
   });
   
+  textSize(20);
+  fill(255)
+  text('\'A\' para agregar', 320, 28);
+  text(chargeUser + " µC", 210, 28);
 }
 
 function drawPotentialArray(arr, spacing){
@@ -63,12 +68,11 @@ function arrayPotential(spacing){
 
 function drawVectorField() {
   const spacing = 17; // Spacing between points
-  const arrowSize = 4; // Size of the arrowhead
+  arrowSize = 4; // Size of the arrowhead
   
   for (let x = 0; x < width; x += spacing) {
     for (let y = 0; y < height; y += spacing) {
       const vector = electricField(x, y);
-      
       // Normalize the vector
       vector.limit(1.5);
       
@@ -84,7 +88,7 @@ function drawVectorField() {
       translate(arrowheadX, arrowheadY);
       rotate(vector.heading());
       fill(colorLine)
-      triangle(-arrowSize, arrowSize / 4, 0, 0, -arrowSize, -arrowSize / 4);
+      triangle(-arrowSize/2, arrowSize / 4, 0, 0, -arrowSize/2, -arrowSize / 4);
       pop();
     }
   }
@@ -165,21 +169,3 @@ function keyPressed() {
     particles.push(new Particle(mouseX,mouseY, chargeUser))
   }
 }
-
-
-function touchStarted() {
-    startX = mouseX;
-    startY = mouseY;
-    return false; // Prevent default behavior
-  }
-  
-  function touchMoved() {
-    let dx = mouseX - startX;
-    let dy = mouseY - startY;
-    
-    // Do something with the displacement (dx, dy)
-    // For example, translate the canvas
-    translate(dx, dy);
-    
-    return false; // Prevent default behavior
-  }
