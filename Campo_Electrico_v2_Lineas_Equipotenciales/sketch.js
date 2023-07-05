@@ -4,7 +4,7 @@ let chargeUser
 let button
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(700, 700);
   p1 = new Particle(width/4, height/2, 1);
   p2 = new Particle(width - width/4, height/2, -1);
   
@@ -16,7 +16,7 @@ function setup() {
   slider.position(100, 10);
   slider.style('width', '190px');
   
-  button = createButton('click me');
+  button = createButton('Dibujar');
   button.position(10, 10);
   button.mousePressed(boton);
   background(0);
@@ -32,7 +32,7 @@ function draw() {
 
   textSize(20);
   fill(255)
-  text('\'A\' para agregar', 820, 28);
+  text('\'A\' para agregar', 520, 28);
 
   text(chargeUser + " µC", 320, 28);
   
@@ -72,7 +72,7 @@ function sleep(millisecondsDuration)
 
 function drawPotential(){
   background(0);
-  const spacing = 1.5; // Spacing between points
+  const spacing = 0.8; // Spacing between points
   
   fill(255)
   stroke(0)
