@@ -1,6 +1,105 @@
 let ke = 9 * 10 ** 9;
 let e0 = 8.9 * 10 ** -12;
 
+function calcularHilo(){
+  var lam = document.getElementById("cargaHilo").value;
+  var x = document.getElementById("distanciaHilo").value;
+  var mult = document.getElementById("cargaHiloMult").value;
+
+  switch (mult) {
+    case 1:
+      lam = lam * 10 ** -3;
+      break;
+    case 2:
+      lam = lam * 10 ** -6;
+      break;
+    case 3:
+      lam = lam * 10 ** -9;
+      break;
+    default:
+      lam = lam;
+      break;
+  }
+
+  if(x == 0){
+    document.getElementById("alertaHilo").style.visibility = "visible";
+  }else{
+    document.getElementById("alertaHilo").style.visibility = "hidden";
+    var modulo = (2*ke*lam)/(x);
+
+    document.getElementById("moduloHilo").value = modulo.toExponential(2);
+  }
+
+}
+
+function calcularDisco(){
+  var a = document.getElementById("radioDisco").value;
+  var x = document.getElementById("distanciaDisco").value;
+  var sig = document.getElementById("cargaDisco").value;
+  var mult = document.getElementById("cargaDiscoMult").selectedIndex;
+
+  switch (mult) {
+    case 1:
+      sig = sig * 10 ** -3;
+      break;
+    case 2:
+      sig = sig * 10 ** -6;
+      break;
+    case 3:
+      sig = sig * 10 ** -9;
+      break;
+    default:
+      sig = sig;
+      break;
+  }
+
+  if(a == 0 && x == 0){
+    document.getElementById("alertaDisco").style.visibility = "visible";
+  }else{
+    document.getElementById("alertaDisco").style.visibility = "hidden";
+
+    var modulo = 2 * Math.PI * ke * sig * (1 - ((x)/(((a**2)+(x**2))**(1/2))));
+  
+    document.getElementById("moduloDisco").value = modulo.toExponential(2);
+  }
+
+
+}
+
+function calcularAnillo(){
+  var a = document.getElementById("radioAnillo").value;
+  var x = document.getElementById("distanciaAnillo").value;
+  var Q = document.getElementById("cargaAnillo").value;
+  var mult = document.getElementById("cargaAnilloMult").selectedIndex;
+  
+
+  switch (mult) {
+    case 1:
+      Q = Q * 10 ** -3;
+      break;
+    case 2:
+      Q = Q * 10 ** -6;
+      break;
+    case 3:
+      Q = Q * 10 ** -9;
+      break;
+    default:
+      Q = Q;
+      break;
+  }
+
+  if(a == 0 && x == 0){
+    document.getElementById("alertaAnillo").style.visibility = "visible";
+  }else{
+    document.getElementById("alertaAnillo").style.visibility = "hidden";
+
+    var modulo = (ke * Q * x)/(((a**2) + (x**2))**(3/2));
+  
+    document.getElementById("moduloAnillo").value = modulo.toExponential(2);
+  }
+
+}
+
 function intercambiarFuerza() {
   var carga1 = document.getElementById("carga1");
   var mult1 = document.getElementById("carga1mult");
@@ -29,6 +128,17 @@ function intercambiarFuerza() {
 }
 
 function calcularFuerza() {
+  var Xcarga1 = parseFloat(document.getElementById("Xcarga1").value);
+  var Ycarga1 = parseFloat(document.getElementById("Ycarga1").value);
+  var Xcarga2 = parseFloat(document.getElementById("Xcarga2").value);
+  var Ycarga2 = parseFloat(document.getElementById("Ycarga2").value);
+
+  if (Xcarga1 == Xcarga2 && Ycarga1 == Ycarga2) {
+    document.getElementById("alertaPunto").style.visibility = "visible";
+  } else {
+    document.getElementById("alertaPunto").style.visibility = "hidden";
+  }
+
   var carga1 = document.getElementById("carga1").value;
   var mult1 = document.getElementById("carga1mult").selectedIndex;
 
@@ -65,11 +175,6 @@ function calcularFuerza() {
       break;
   }
 
-  var Xcarga1 = parseFloat(document.getElementById("Xcarga1").value);
-  var Ycarga1 = parseFloat(document.getElementById("Ycarga1").value);
-  var Xcarga2 = parseFloat(document.getElementById("Xcarga2").value);
-  var Ycarga2 = parseFloat(document.getElementById("Ycarga2").value);
-
   var punto1 = new Vector(Xcarga1, Ycarga1);
   var punto2 = new Vector(Xcarga2, Ycarga2);
 
@@ -80,51 +185,61 @@ function calcularFuerza() {
     direccionFuerza = Vector.normalize(direccionFuerza);
   }
 
-  var modulo = (ke * carga1 * carga2) / distancia ** 2;
+  if(distancia != 0){
+    var modulo = (ke * carga1 * carga2) / distancia ** 2;
+  
+    document.getElementById("modulo").value = modulo.toExponential(2);
+    document.getElementById("direccion").value =
+      "(" +
+      direccionFuerza.x.toFixed(2) +
+      ", " +
+      direccionFuerza.y.toFixed(2) +
+      ")";
+  }
 
-  document.getElementById("modulo").value = modulo.toExponential(2);
-  document.getElementById("direccion").value =
-    "(" +
-    direccionFuerza.x.toFixed(2) +
-    ", " +
-    direccionFuerza.y.toFixed(2) +
-    ")";
 }
 
 function calcularCampo() {
-    var carga = document.getElementById("cargaCampo").value;
-    var mult = document.getElementById("cargaCampoMult").selectedIndex;
-  
-    switch (mult) {
-      case 1:
-        carga = carga * 10 ** -3;
-        break;
-      case 2:
-        carga = carga * 10 ** -6;
-        break;
-      case 3:
-        carga = carga * 10 ** -9;
-        break;
-      default:
-        carga = carga;
-        break;
-    }
-  
-    var XCargaCampo= parseFloat(document.getElementById("XCargaCampo").value);
-    var YCargaCampo = parseFloat(document.getElementById("YCargaCampo").value);
-    var XCampo = parseFloat(document.getElementById("XCampo").value);
-    var YCampo = parseFloat(document.getElementById("YCampo").value);
-  
-    var punto1 = new Vector(XCargaCampo, YCargaCampo);
-    var punto2 = new Vector(XCampo, YCampo);
-  
-    var direccionCampo = Vector.sub(punto2, punto1);
-    var distancia = Vector.len(direccionCampo);
-  
-    if (Vector.len(direccionCampo) != 0) {
-        direccionCampo = Vector.normalize(direccionCampo);
-    }
+  var XCargaCampo = parseFloat(document.getElementById("XCargaCampo").value);
+  var YCargaCampo = parseFloat(document.getElementById("YCargaCampo").value);
+  var XCampo = parseFloat(document.getElementById("XCampo").value);
+  var YCampo = parseFloat(document.getElementById("YCampo").value);
 
+  if (XCargaCampo == XCampo && YCargaCampo == YCampo) {
+    document.getElementById("alertaCampo").style.visibility = "visible";
+  } else {
+    document.getElementById("alertaCampo").style.visibility = "hidden";
+  }
+
+  var carga = document.getElementById("cargaCampo").value;
+  var mult = document.getElementById("cargaCampoMult").selectedIndex;
+
+  switch (mult) {
+    case 1:
+      carga = carga * 10 ** -3;
+      break;
+    case 2:
+      carga = carga * 10 ** -6;
+      break;
+    case 3:
+      carga = carga * 10 ** -9;
+      break;
+    default:
+      carga = carga;
+      break;
+  }
+
+  var punto1 = new Vector(XCargaCampo, YCargaCampo);
+  var punto2 = new Vector(XCampo, YCampo);
+
+  var direccionCampo = Vector.sub(punto2, punto1);
+  var distancia = Vector.len(direccionCampo);
+
+  if (Vector.len(direccionCampo) != 0) {
+    direccionCampo = Vector.normalize(direccionCampo);
+  }
+
+  if(distancia != 0){
     var modulo = (ke * carga) / distancia ** 2;
   
     document.getElementById("moduloCampo").value = modulo.toExponential(2);
@@ -135,3 +250,4 @@ function calcularCampo() {
       direccionCampo.y.toFixed(2) +
       ")";
   }
+}

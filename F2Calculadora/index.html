@@ -34,9 +34,15 @@
         <ul>
           <li>Fuerza electrica de la carga 1 sobre la carga 2</li>
           <li>Campo electrico generado por la carga 1 en un punto (x,y)</li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>
+            Campo electrico generado por un anillo cargado en un punto sobre su
+            eje
+          </li>
+          <li>
+            Campo electrico generado por un disco cargado en un punto sobre su
+            eje
+          </li>
+          <li>Campo electrico generado por un hilo infinito</li>
         </ul>
       </div>
     </div>
@@ -44,14 +50,25 @@
     <!-- Fuerza carga 1 sobre carga 2 -->
     <div class="calculadora">
       <div class="row">
-        <div class="h3"><u>Calcular la fuerza electrica generada por la carga 1 sobre la carga 2</u></div>
+        <div class="h3">
+          <u
+            >Calcular la fuerza electrica generada por la carga 1 sobre la carga
+            2</u
+          >
+        </div>
       </div>
       <div class="row">
         <!-- INPUT DE CARGA 1 -->
         <div class="col">
           <label for="carga1" class="form-label">Carga 1</label>
           <div class="input-group mb-3">
-            <input type="number" class="form-control" placeholder="Carga 1" id="carga1" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Carga 1"
+              id="carga1"
+              value="0"
+            />
             <select id="carga1mult" class="form-select">
               <option selected></option>
               <option>m</option>
@@ -61,12 +78,18 @@
             <span class="input-group-text">C</span>
           </div>
         </div>
-  
+
         <!-- INPUT DE CARGA 2 -->
         <div class="col">
           <label for="carga2" class="form-label">Carga 2</label>
           <div class="input-group mb-3">
-            <input type="number" class="form-control" placeholder="Carga 2" id="carga2" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Carga 2"
+              id="carga2"
+              value="0"
+            />
             <select id="carga2mult" class="form-select">
               <option selected></option>
               <option>m</option>
@@ -83,9 +106,21 @@
           <label for="" class="form-label">Punto 1</label>
           <div class="input-group mb-3">
             <span class="input-group-text">x</span>
-            <input type="number" class="form-control" placeholder="x" id="Xcarga1" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="x"
+              id="Xcarga1"
+              value="0"
+            />
             <span class="input-group-text">y</span>
-            <input type="number" class="form-control" placeholder="y" id="Ycarga1" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="y"
+              id="Ycarga1"
+              value="0"
+            />
             <span class="input-group-text">metros</span>
           </div>
         </div>
@@ -94,45 +129,111 @@
           <label for="" class="form-label">Punto 2</label>
           <div class="input-group mb-3">
             <span class="input-group-text">x</span>
-            <input type="number" class="form-control" placeholder="x" id="Xcarga2" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="x"
+              id="Xcarga2"
+              value="0"
+            />
             <span class="input-group-text">y</span>
-            <input type="number" class="form-control" placeholder="y" id="Ycarga2" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="y"
+              id="Ycarga2"
+              value="0"
+            />
             <span class="input-group-text">metros</span>
           </div>
+        </div>
+      </div>
+      <div class="row m-2">
+        <!-- ALERTA -->
+        <div
+          class="alert alert-danger d-flex align-items-center"
+          role="alert"
+          id="alertaPunto"
+          style="visibility: hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+            viewBox="0 0 16 16"
+            role="img"
+            aria-label="Warning:"
+          >
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <div>Las cargas no pueden estar en el mismo punto</div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="input-group mb-3">
-            <button class="btn btn-primary form-control" onclick="calcularFuerza()">Calcular</button>
-            <button class="btn btn-success form-control" onclick="intercambiarFuerza()">Intercambiar Valores</button>
+            <button
+              class="btn btn-primary form-control"
+              onclick="calcularFuerza()"
+            >
+              Calcular
+            </button>
+            <button
+              class="btn btn-success form-control"
+              onclick="intercambiarFuerza()"
+            >
+              Intercambiar Valores
+            </button>
           </div>
         </div>
         <div class="col">
           <div class="input-group mb-3">
             <span class="input-group-text">Modulo</span>
-            <input type="number" class="form-control" placeholder="0" id="modulo" disabled/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="0"
+              id="modulo"
+              disabled
+            />
             <span class="input-group-text">N</span>
             <span class="input-group-text"></span>
             <span class="input-group-text">Direccion</span>
-            <input type="text" class="form-control" placeholder="(0,0)" id="direccion" disabled/>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              id="direccion"
+              disabled
+            />
           </div>
         </div>
       </div>
     </div>
 
-
     <!-- Campo electrico generado por una carga sobre un punto -->
     <div class="calculadora">
       <div class="row">
-        <div class="h3"><u>Calcular el campo electrico generado por una carga en un punto</u></div>
+        <div class="h3">
+          <u>Calcular el campo electrico generado por una carga en un punto</u>
+        </div>
       </div>
       <div class="row">
         <!-- INPUT DE CARGA 1 -->
         <div class="col">
           <label for="cargaCampo" class="form-label">Carga</label>
           <div class="input-group mb-3">
-            <input type="number" class="form-control" placeholder="Carga" id="cargaCampo" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Carga"
+              id="cargaCampo"
+              value="0"
+            />
             <select id="cargaCampoMult" class="form-select">
               <option selected></option>
               <option>m</option>
@@ -142,17 +243,30 @@
             <span class="input-group-text">C</span>
           </div>
         </div>
-  
+
         <!-- INPUT DE Punto -->
         <div class="col">
           <label for="" class="form-label">Punto</label>
           <div class="input-group mb-3">
             <span class="input-group-text">x</span>
-            <input type="number" class="form-control" placeholder="x" id="XCampo" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="x"
+              id="XCampo"
+              value="0"
+            />
             <span class="input-group-text">y</span>
-            <input type="number" class="form-control" placeholder="y" id="YCampo" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="y"
+              id="YCampo"
+              value="0"
+            />
             <span class="input-group-text">metros</span>
           </div>
+        </div>
       </div>
       <div class="row">
         <!-- INPUT DE CARGA 1 PUNTO -->
@@ -160,31 +274,424 @@
           <label for="" class="form-label">Punto de carga</label>
           <div class="input-group mb-3">
             <span class="input-group-text">x</span>
-            <input type="number" class="form-control" placeholder="x" id="XCargaCampo" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="x"
+              id="XCargaCampo"
+              value="0"
+            />
             <span class="input-group-text">y</span>
-            <input type="number" class="form-control" placeholder="y" id="YCargaCampo" value="0"/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="y"
+              id="YCargaCampo"
+              value="0"
+            />
             <span class="input-group-text">metros</span>
           </div>
         </div>
         <!-- Espacio Vacio -->
-        <div class="col">
-          
+        <div class="col"></div>
+      </div>
+      <div class="row m-2">
+        <!-- ALERTA -->
+        <div
+          class="alert alert-danger d-flex align-items-center"
+          role="alert"
+          id="alertaCampo"
+          style="visibility: hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+            viewBox="0 0 16 16"
+            role="img"
+            aria-label="Warning:"
+          >
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <div>Verificar el campo en un punto diferente a la carga</div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="input-group mb-3">
-            <button class="btn btn-primary form-control" onclick="calcularCampo()">Calcular</button>
+            <button
+              class="btn btn-primary form-control"
+              onclick="calcularCampo()"
+            >
+              Calcular
+            </button>
           </div>
         </div>
         <div class="col">
           <div class="input-group mb-3">
             <span class="input-group-text">Modulo</span>
-            <input type="number" class="form-control" placeholder="0" id="moduloCampo" disabled/>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="0"
+              id="moduloCampo"
+              disabled
+            />
             <span class="input-group-text">N/C</span>
             <span class="input-group-text"></span>
             <span class="input-group-text">Direccion</span>
-            <input type="text" class="form-control" placeholder="(0,0)" id="direccionCampo" disabled/>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              id="direccionCampo"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo electrico generado por un anillo cargado en un punto sobre su eje -->
+    <div class="calculadora">
+      <div class="row">
+        <div class="h3">
+          <u
+            >Campo electrico generado por un anillo cargado en un punto sobre su
+            eje</u
+          >
+        </div>
+      </div>
+      <div class="row">
+        <img src="images/anillo.jpg" alt="" />
+      </div>
+      <div class="row">
+        <!-- INPUT DE CARGA -->
+        <div class="col">
+          <label for="cargaAnillo" class="form-label">Carga</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Carga"
+              id="cargaAnillo"
+              value="0"
+            />
+            <select id="cargaAnilloMult" class="form-select">
+              <option selected></option>
+              <option>m</option>
+              <option>µ</option>
+              <option>n</option>
+            </select>
+            <span class="input-group-text">C</span>
+          </div>
+        </div>
+
+        <!-- INPUT DE Distancia -->
+        <div class="col">
+          <label for="distanciaAnillo" class="form-label">Distancia</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Distancia"
+              id="distanciaAnillo"
+              value="0"
+            />
+            <span class="input-group-text">metros</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- INPUT DE Radio-->
+        <div class="col">
+          <label for="" class="form-label">Radio</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Radio"
+              id="radioAnillo"
+              value="0"
+            />
+            <span class="input-group-text">metros</span>
+          </div>
+        </div>
+        <!-- Vacio -->
+        <div class="col"></div>
+      </div>
+      <div class="row m-2">
+        <!-- ALERTA -->
+        <div
+          class="alert alert-danger d-flex align-items-center"
+          role="alert"
+          id="alertaAnillo"
+          style="visibility: hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+            viewBox="0 0 16 16"
+            role="img"
+            aria-label="Warning:"
+          >
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <div>El radio y la distancia no pueden ser los dos 0</div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <div class="input-group mb-3">
+            <button
+              class="btn btn-primary form-control"
+              onclick="calcularAnillo()"
+            >
+              Calcular
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Modulo</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              id="moduloAnillo"
+              disabled
+            />
+            <span class="input-group-text">N/C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disco Cargado -->
+    <div class="calculadora">
+      <div class="row">
+        <div class="h3">
+          <u
+            >Campo electrico generado por un disco cargado en un punto sobre su
+            eje</u
+          >
+        </div>
+      </div>
+      <div class="row">
+        <img src="images/disco.jpg" alt="" />
+      </div>
+      <div class="row">
+        <!-- INPUT DE CARGA -->
+        <div class="col">
+          <label for="cargaDisco" class="form-label">Densidad de carga superficial</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Densidad de carga"
+              id="cargaDisco"
+              value="0"
+            />
+            <select id="cargaDiscoMult" class="form-select">
+              <option selected></option>
+              <option>m</option>
+              <option>µ</option>
+              <option>n</option>
+            </select>
+            <span class="input-group-text">C/M**2</span>
+          </div>
+        </div>
+
+        <!-- INPUT DE Distancia -->
+        <div class="col">
+          <label for="distanciaDisco" class="form-label">Distancia</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Distancia"
+              id="distanciaDisco"
+              value="0"
+            />
+            <span class="input-group-text">metros</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- INPUT DE Radio-->
+        <div class="col">
+          <label for="" class="form-label">Radio</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Radio"
+              id="radioDisco"
+              value="0"
+            />
+            <span class="input-group-text">metros</span>
+          </div>
+        </div>
+        <!-- Vacio -->
+        <div class="col"></div>
+      </div>
+      <div class="row m-2">
+        <!-- ALERTA -->
+        <div
+          class="alert alert-danger d-flex align-items-center"
+          role="alert"
+          id="alertaDisco"
+          style="visibility: hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+            viewBox="0 0 16 16"
+            role="img"
+            aria-label="Warning:"
+          >
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <div>El radio y la distancia no pueden ser los dos 0</div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <div class="input-group mb-3">
+            <button
+              class="btn btn-primary form-control"
+              onclick="calcularDisco()"
+            >
+              Calcular
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Modulo</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              id="moduloDisco"
+              disabled
+            />
+            <span class="input-group-text">N/C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hilo -->
+    <div class="calculadora">
+      <div class="row">
+        <div class="h3">
+          <u
+            >Campo electrico generado por un hilo infinito</u
+          >
+        </div>
+      </div>
+      <div class="row">
+        <img src="images/hilo.jpg" alt="" />
+      </div>
+      <div class="row">
+        <!-- INPUT DE CARGA -->
+        <div class="col">
+          <label for="cargaHilo" class="form-label">Densidad de carga lineal</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Densidad de carga"
+              id="cargaHilo"
+              value="0"
+            />
+            <select id="cargaHiloMult" class="form-select">
+              <option selected></option>
+              <option>m</option>
+              <option>µ</option>
+              <option>n</option>
+            </select>
+            <span class="input-group-text">C/M</span>
+          </div>
+        </div>
+
+        <!-- INPUT DE Distancia -->
+        <div class="col">
+          <label for="distanciaHilo" class="form-label">Distancia</label>
+          <div class="input-group mb-3">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Distancia"
+              id="distanciaHilo"
+              value="0"
+            />
+            <span class="input-group-text">metros</span>
+          </div>
+        </div>
+      </div>
+      <div class="row m-2">
+        <!-- ALERTA -->
+        <div
+          class="alert alert-danger d-flex align-items-center"
+          role="alert"
+          id="alertaHilo"
+          style="visibility: hidden"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+            viewBox="0 0 16 16"
+            role="img"
+            aria-label="Warning:"
+          >
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            />
+          </svg>
+          <div>La distancia no puede ser 0</div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <div class="input-group mb-3">
+            <button
+              class="btn btn-primary form-control"
+              onclick="calcularHilo()"
+            >
+              Calcular
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Modulo</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              id="moduloHilo"
+              disabled
+            />
+            <span class="input-group-text">N/C</span>
           </div>
         </div>
       </div>
