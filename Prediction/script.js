@@ -1,5 +1,6 @@
 let previousHour = -1;
 let jsonData = null;
+let innit = false
 
 async function setup() {
   url = "data/probabilities.json";
@@ -15,6 +16,8 @@ setup();
 
 function hideloader() {
   document.getElementById("loadingScreen").style.visibility = "hidden";
+
+  innit = true
 }
 
 function hourListener() {
@@ -35,7 +38,9 @@ function updateEscabillitat(day, hour) {
   updateName('santiago', day, hour)
 
   previousHour = hour
-  hideloader();
+  if(!innit){
+    setTimeout(hideloader(), 1500)
+  }
 }
 
 function updateName(name, day, hour) {
@@ -78,6 +83,9 @@ function updateName(name, day, hour) {
     document.getElementById('text-parado-'+name).style.display = 'inline'
     document.getElementById('text-sentado-'+name).style.display = 'none'
   }
+
+  document.getElementById("spinner-"+name).style.display = "none";
+
   let probability = jsonDict[name].probabilities[day_string][hour] 
   document.getElementById('probabilidad-'+name).textContent = (probability * 100).toFixed(2) + '%'
 
