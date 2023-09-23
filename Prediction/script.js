@@ -8,9 +8,6 @@ async function setup() {
 
   // Storing data in form of JSON
   var data = await response.json();
-  if (response) {
-    hideloader();
-  }
   jsonData = data
 }
 // Calling that async function
@@ -38,6 +35,7 @@ function updateEscabillitat(day, hour) {
   updateName('santiago', day, hour)
 
   previousHour = hour
+  hideloader();
 }
 
 function updateName(name, day, hour) {
