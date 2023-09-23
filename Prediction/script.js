@@ -84,7 +84,6 @@ function updateName(name, day, hour) {
     document.getElementById('text-sentado-'+name).style.display = 'none'
   }
 
-  document.getElementById("spinner-"+name).style.display = "none";
 
   let probability = jsonDict[name].probabilities[day_string][hour] 
   document.getElementById('probabilidad-'+name).textContent = (probability * 100).toFixed(2) + '%'
