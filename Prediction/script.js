@@ -64,7 +64,7 @@ function updateName(name, day, hour) {
     case 6:
       day_string = 'SATURDAY'
     break;
-    case 7:
+    case 0:
       day_string = 'SUNDAY'
     break;
     default:
@@ -83,8 +83,7 @@ function updateName(name, day, hour) {
     document.getElementById('text-parado-'+name).style.display = 'inline'
     document.getElementById('text-sentado-'+name).style.display = 'none'
   }
-
-
+  
   let probability = jsonDict[name].probabilities[day_string][hour] 
   document.getElementById('probabilidad-'+name).textContent = (probability * 100).toFixed(2) + '%'
 
