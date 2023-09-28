@@ -55,13 +55,13 @@
         ]
       },
       "probable_hour": {
-        "MONDAY": 10,
-        "TUESDAY": 9,
-        "WEDNESDAY": 13,
-        "THURSDAY": 14,
-        "FRIDAY": 10,
-        "SATURDAY": 15,
-        "SUNDAY": 11
+        "MONDAY": [10, 15],
+        "TUESDAY": [9, 12],
+        "WEDNESDAY": [13],
+        "THURSDAY": [1, 14],
+        "FRIDAY": [10, 14, 16, 21],
+        "SATURDAY": [15],
+        "SUNDAY": [11, 15, 21]
       }
     },
     "ram": {
@@ -118,13 +118,13 @@
         ]
       },
       "probable_hour": {
-        "MONDAY": 10,
-        "TUESDAY": 5,
-        "WEDNESDAY": 5,
-        "THURSDAY": 5,
-        "FRIDAY": 9,
-        "SATURDAY": 16,
-        "SUNDAY": 9
+        "MONDAY": [10, 14],
+        "TUESDAY": [5, 7],
+        "WEDNESDAY": [5, 11, 15],
+        "THURSDAY": [5, 14, 16],
+        "FRIDAY": [5, 9, 12],
+        "SATURDAY": [16],
+        "SUNDAY": [9, 11]
       }
     },
     "santiago": {
@@ -188,13 +188,13 @@
         ]
       },
       "probable_hour": {
-        "MONDAY": 11,
-        "TUESDAY": 11,
-        "WEDNESDAY": 11,
-        "THURSDAY": 11,
-        "FRIDAY": 10,
-        "SATURDAY": 11,
-        "SUNDAY": 11
+        "MONDAY": [11],
+        "TUESDAY": [11, 16],
+        "WEDNESDAY": [11, 13],
+        "THURSDAY": [11],
+        "FRIDAY": [10, 14],
+        "SATURDAY": [9, 11, 13],
+        "SUNDAY": [11]
       }
     }
   }

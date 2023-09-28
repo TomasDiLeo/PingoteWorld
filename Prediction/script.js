@@ -72,7 +72,7 @@ function updateName(name, day, hour) {
   }
   jsonDict = jsonData[0]
 
-  if(hour == jsonDict[name].probable_hour[day_string]){
+  if(jsonDict[name].probable_hour[day_string].includes(hour)){
     document.getElementById('img-parado-'+name).style.display = 'none'
     document.getElementById('img-sentado-'+name).style.display = 'inline'
     document.getElementById('text-parado-'+name).style.display = 'none'
