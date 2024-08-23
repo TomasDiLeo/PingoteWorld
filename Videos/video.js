@@ -1,29 +1,27 @@
-function getVideoId() {
+// Función para obtener el ID del video desde la URL
+function getVideoTitle() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
+    return urlParams.get('title');
 }
 
+function getVideoLink() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('link');
+}
+
+// Función para cargar el CSV y buscar el ID
 function loadVideo() {
-    const videoId = getVideoId();
-    let videoSrc = '';
+    const videoTitle= getVideoTitle();
+    const videoLink = getVideoLink();
 
-    switch(videoId) {
-        case 'cassette1p1':
-            videoSrc = 'https://voe.sx/e/od6h7p7psthd';
-            break;
-        case 'cassette1p2':
-            videoSrc = 'https://voe.sx/e/qmohdzzigddr';
-            break;
-        // Agrega más casos según sea necesario
-        default:
-            videoSrc = '';
-    }
-
-    if (videoSrc) {
-        document.getElementById('frame').src = videoSrc;
+    if (videoLink) {
+        document.getElementById('videoFrame').src = videoLink;
+        document.getElementById('title').innerText = videoTitle;
+        document.title = videoTitle;
     } else {
-        document.getElementById('videoContainer').innerHTML = '<p>Video no encontrado.</p>';
+        document.getElementById('message').textContent = 'Video no encontrado.';
     }
 }
 
+// Ejecutar la función loadVideo cuando la página cargue
 window.onload = loadVideo;
