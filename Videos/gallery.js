@@ -30,7 +30,7 @@ function createGalleryEntry(thumbnail, title, description, link) {
 
 // Función para cargar el CSV y generar la galería
 function loadGallery() {
-    Papa.parse('https://raw.githubusercontent.com/TomasDiLeo/hosted-files/main/digitalizacion-datos.csv?token=GHSAT0AAAAAACWCUMSPMSU7OXNNAA574M6AZWH2KEA', {
+    Papa.parse('https://raw.githubusercontent.com/TomasDiLeo/hosted-files/main/digitalizacion-datos.csv', {
         download: true,
         header: true,
         complete: function(results) {
